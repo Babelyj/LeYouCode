@@ -2,6 +2,7 @@ package com.leyou.item.controller;
 
 import com.leyou.item.pojo.Category;
 import com.leyou.item.service.CategoryService;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -48,6 +51,15 @@ public class CategoryController {
         //200：查询成功
         return ResponseEntity.ok(categoryList);
 
+    }
+
+
+    @RequestMapping("add")
+    public ResponseEntity<Category> addCategory(@RequestBody Category category){
+
+        //this.categoryService.addCategory(category);
+        logger.info(category.toString());
+        return ResponseEntity.ok(category);
     }
 
 }
