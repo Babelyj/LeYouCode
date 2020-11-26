@@ -21,7 +21,7 @@ import java.util.List;
 @Controller
 @RequestMapping("category")
 public class CategoryController {
-    private static Logger logger = LoggerFactory.getLogger(CategoryController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
     @Autowired
     private CategoryService categoryService;

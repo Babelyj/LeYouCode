@@ -13,6 +13,7 @@
         <module>leyou-item</module>
         <module>leyou-common</module>
         <module>leyou-common</module>
+        <module>leyou-upload</module>
     </modules>
 
     <name>leyou</name>
@@ -78,6 +79,12 @@
                 <groupId>com.github.tobato</groupId>
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastDFS.client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.15</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
