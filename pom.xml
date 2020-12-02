@@ -12,7 +12,6 @@
         <module>leyou-registry</module>
         <module>leyou-item</module>
         <module>leyou-common</module>
-        <module>leyou-common</module>
         <module>leyou-upload</module>
     </modules>
 

@@ -15,7 +15,6 @@
     <modules>
         <module>leyou-item-interface</module>
         <module>leyou-item-service</module>
-        <module>leyou-item-interface</module>
     </modules>
 
 

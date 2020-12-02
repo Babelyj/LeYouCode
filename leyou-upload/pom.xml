@@ -37,7 +37,11 @@
             <groupId>com.leyou.parent</groupId>
             <artifactId>leyou-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
+        </dependency>
+        <!--FastDFS客户端-->
+        <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
         </dependency>
     </dependencies>
 
