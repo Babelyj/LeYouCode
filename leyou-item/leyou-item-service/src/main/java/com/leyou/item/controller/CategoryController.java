@@ -11,10 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -58,9 +55,18 @@ public class CategoryController {
     @RequestMapping("add")
     public ResponseEntity<Category> addCategory(@RequestBody Category category){
 
-        //this.categoryService.addCategory(category);
+        this.categoryService.addCategory(category);
         logger.info(category.toString());
         return ResponseEntity.ok(category);
+    }
+
+    /**
+     * 根据id删除数据
+     */
+    @DeleteMapping("cid/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable("cid") Long id){
+        this.categoryService.deleteCategory(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }
