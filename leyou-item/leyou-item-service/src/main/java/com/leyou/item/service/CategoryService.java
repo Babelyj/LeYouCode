@@ -4,6 +4,7 @@ import com.leyou.item.mapper.CategoryMapper;
 import com.leyou.item.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class CategoryService {
 
 
     /**
-     * 根據父節點查询子节点
+     * 根据父节点查询子节点
      * @param pid
      * @return
      */
@@ -46,16 +47,74 @@ public class CategoryService {
         this.categoryMapper.updateByPrimaryKeySelective(parent);
     }
 
+    /**
+     * 此处逻辑稍微有些复杂
+     * 1.若删除的节点为父节点：
+     *      查询所有的叶子节点：用于维护中间表
+     *      查询所有的子节点包括自己：用于删除
+     * 2.若删除的节点不为父节点:
+     *      查看是否有兄弟：有则直接删除即可，
+     *                     否则删除后将其父节点变为叶子节点
+     * @param id
+     */
     public void deleteCategory(Long id) {
         Category category = this.categoryMapper.selectByPrimaryKey(id);
         if(category.getIsParent()){
             //若为非叶子节点
-
             //1.查找所有的叶子节点
             List<Category> leafList = new ArrayList<>();
-            //queryAllLeafNode(category, leafList);
+            List<Category> nodeList = new ArrayList<>();
+            queryAllLeafNode(category, leafList, nodeList);
 
-            //2.查找所有的子节点
+            //删除tb_category中的数据
+            for (Category ca : nodeList){
+                this.categoryMapper.delete(ca);
+            }
+
+            //维护中间表
+            for (Category ca : leafList){
+                this.categoryMapper.deleteByCategoryIdInCategoryBrand(ca.getId());
+            }
+        }else{
+            Example example = new Example(Category.class);
+            example.createCriteria().andEqualTo("parentId",category.getParentId());
+            List<Category> list = this.categoryMapper.selectByExample(example);
+            if(list.size() == 1){
+                Category parent = new Category();
+                parent.setId(category.getParentId());
+                parent.setIsParent(false);
+                this.categoryMapper.updateByPrimaryKeySelective(parent);
+            }
+            //不管有没有兄弟都要删除自身
+            this.categoryMapper.deleteByPrimaryKey(category.getId());
+
+            //维护中间表
+            this.categoryMapper.deleteByCategoryIdInCategoryBrand(category.getId());
         }
     }
+
+    /**
+     * 获取叶子节点
+     * @param category
+     * @param leafList
+     */
+    private void queryAllLeafNode(Category category, List<Category> leafList, List<Category> nodeList) {
+        if(!category.getIsParent()){
+            //叶子节点
+            leafList.add(category);
+        }
+
+        //所有子节点
+        nodeList.add(category);
+
+        Example example = new Example(Category.class);
+        example.createCriteria().andEqualTo("parentId", category.getId());
+        List<Category> list = this.categoryMapper.selectByExample(example);
+
+        for (Category ca : list){
+            queryAllLeafNode(ca, leafList, nodeList);
+        }
+
+    }
+
 }
