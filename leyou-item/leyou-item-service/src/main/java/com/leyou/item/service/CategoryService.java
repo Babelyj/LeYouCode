@@ -4,6 +4,7 @@ import com.leyou.item.mapper.CategoryMapper;
 import com.leyou.item.pojo.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class CategoryService {
          * 并且将此节点的父节点的isParent设置未true
          */
         //将id设置为null
-        category.setId(null);
+        //category.setId(null);
         this.categoryMapper.insertSelective(category);
         //修改父节点
         Category parent = new Category();
@@ -117,4 +118,26 @@ public class CategoryService {
 
     }
 
+    /**
+     * 根据id修改分类
+     * @param category
+     */
+    public void editCategory(Category category) {
+        this.categoryMapper.updateByPrimaryKeySelective(category);
+    }
+
+    /**
+     * 查找最新创建的分类信息
+     * @return
+     */
+    public List<Category> selectLastCategory() {
+        List<Category> list = new ArrayList<>();
+        list = this.categoryMapper.selectLastCategory();
+        //防止第一次进行分类添加
+        if(CollectionUtils.isEmpty(list)){
+            list.add(new Category(Long.valueOf(0)));
+        }
+        return list;
+
+    }
 }

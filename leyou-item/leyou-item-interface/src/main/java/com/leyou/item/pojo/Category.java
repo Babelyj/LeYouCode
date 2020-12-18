@@ -15,6 +15,12 @@ public class Category {
     private Boolean isParent; // 注意isParent生成的getter和setter方法需要手动加上Is private Integer sort; // getter和setter略
     private Integer sort;
 
+    public Category() {
+    }
+
+    public Category(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
