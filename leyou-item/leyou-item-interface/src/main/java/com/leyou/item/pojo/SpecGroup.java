@@ -19,9 +19,6 @@ public class SpecGroup {
     @Transient
     private List<SpecParam> params;
 
-   // getter和setter省略
-
-
     public Long getId() {
         return id;
     }
