@@ -9,6 +9,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
@@ -140,4 +141,16 @@ public class CategoryService {
         return list;
 
     }
+
+    /**
+     * 根据ids集合查询
+     * @param ids
+     * @return
+     */
+    public List<String> queryNamesByIds(List<Long> ids){
+        List<Category> categories = this.categoryMapper.selectByIdList(ids);
+        List<String> collect = categories.stream().map(category -> category.getName()).collect(Collectors.toList());
+        return collect;
+    }
+
 }

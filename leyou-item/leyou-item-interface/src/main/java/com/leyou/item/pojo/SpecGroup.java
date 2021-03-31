@@ -15,6 +15,7 @@ public class SpecGroup {
 
     private String name;
 
+
     //表中无此字段要忽略该字段
     @Transient
     private List<SpecParam> params;

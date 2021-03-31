@@ -11,7 +11,7 @@
 
     <groupId>com.leyou.item</groupId>
     <artifactId>leyou-item</artifactId>
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
     <modules>
         <module>leyou-item-interface</module>
         <module>leyou-item-service</module>

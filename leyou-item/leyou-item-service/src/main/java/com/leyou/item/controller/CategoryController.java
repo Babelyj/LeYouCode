@@ -91,4 +91,16 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+
+    @GetMapping
+    public ResponseEntity<List<String>> queryNameByIds(@RequestParam("ids") List<Long> ids){
+        List<String> strings = this.categoryService.queryNamesByIds(ids);
+        if(CollectionUtils.isEmpty(strings)){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(strings);
+    }
+
+
+
 }

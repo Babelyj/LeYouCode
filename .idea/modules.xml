@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://D:/study/code/hello-vue/hello-vue.iml" filepath="D:/study/code/hello-vue/hello-vue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itcast-elasticsearch/itcast-elasticsearch.iml" filepath="$PROJECT_DIR$/itcast-elasticsearch/itcast-elasticsearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou.iml" filepath="$PROJECT_DIR$/leyou.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-common/leyou-common.iml" filepath="$PROJECT_DIR$/leyou-common/leyou-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" filepath="$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" />
@@ -10,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item-interface/leyou-item-interface.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item-interface/leyou-item-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item-service/leyou-item-service.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item-service/leyou-item-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-registry/leyou-registry.iml" filepath="$PROJECT_DIR$/leyou-registry/leyou-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-search/leyou-search.iml" filepath="$PROJECT_DIR$/leyou-search/leyou-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-upload/leyou-upload.iml" filepath="$PROJECT_DIR$/leyou-upload/leyou-upload.iml" />
       <module fileurl="file://D:/newworkspace/web/singlechannel.iml" filepath="D:/newworkspace/web/singlechannel.iml" />
     </modules>
   </component>

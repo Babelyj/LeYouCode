@@ -54,6 +54,29 @@ public class BrandController {
     public ResponseEntity<Void> saveBrand(Brand brand, @RequestParam("cids") List<Long> cids){
 
         this.brandService.saveBrand(brand,cids);
-        return ResponseEntity.status(HttpStatus.CREATED).build();    }
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    /**
+     * 根据分类id查询品牌
+     * @param cid
+     * @return
+     */
+    @GetMapping("cid/{cid}")
+    public ResponseEntity<List<Brand>> queryBrandsByCid(@PathVariable("cid") Long cid){
+        List<Brand> brandList = this.brandService.queryBrandsByCid(cid);
+        return ResponseEntity.ok(brandList);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Brand> queryBrandById(@PathVariable("id")Long id){
+        Brand brand = this.brandService.queryBrandByCid(id);
+        if(null == brand){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(brand);
+
+    }
+
 
 }

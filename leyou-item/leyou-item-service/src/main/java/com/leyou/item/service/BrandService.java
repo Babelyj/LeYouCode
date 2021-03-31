@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.leyou.common.pojo.PageResult;
 import com.leyou.item.mapper.BrandMapper;
 import com.leyou.item.pojo.Brand;
+import jdk.internal.org.objectweb.asm.tree.IincInsnNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,4 +68,13 @@ public class BrandService {
             this.brandMapper.insertCategoryAndBrand(cid,brand.getId());
         });
     }
+
+    public List<Brand> queryBrandsByCid(Long cid) {
+        return brandMapper.selecBrandByCid(cid);
+    }
+
+    public Brand queryBrandByCid(Long id) {
+        return this.brandMapper.selectByPrimaryKey(id);
+    }
+
 }

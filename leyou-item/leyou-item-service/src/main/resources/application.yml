@@ -7,6 +7,14 @@ spring:
     url: jdbc:mysql:///leyou
     username: root
     password: 123456
+  rabbitmq:
+    host: 192.168.83.128
+    port: 5672
+    virtual-host: /leyou
+    password: leyou
+    username: leyou
+    template:
+      exchange: leyou.item.exchange
 eureka:
   client:
     service-url:
@@ -16,3 +24,9 @@ eureka:
     lease-expiration-duration-in-seconds: 15 #过期时间
 mybatis:
   type-aliases-package: com.leyou.item.pojo
+logging:
+  level:
+    com:
+      leyou:
+        item:
+         mapper: DEBUG
