@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/leyou.iml" filepath="$PROJECT_DIR$/leyou.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-common/leyou-common.iml" filepath="$PROJECT_DIR$/leyou-common/leyou-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" filepath="$PROJECT_DIR$/leyou-gateway/leyou-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou-goods-web/leyou-goods-web.iml" filepath="$PROJECT_DIR$/leyou-goods-web/leyou-goods-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item-interface/leyou-item-interface.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item-interface/leyou-item-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-item/leyou-item-service/leyou-item-service.iml" filepath="$PROJECT_DIR$/leyou-item/leyou-item-service/leyou-item-service.iml" />

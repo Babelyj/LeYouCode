@@ -96,4 +96,13 @@ public class SpecificationService {
     public void deleteParamById(Long id) {
         this.specParamMapper.deleteByPrimaryKey(id);
     }
+
+    public List<SpecGroup> queryGroupsWithParam(Long cid) {
+        List<SpecGroup> groups = this.queryGroupByCid(cid);
+        groups.forEach(group -> {
+            List<SpecParam> params = this.queryParams(group.getId(), null, null, null);
+            group.setParams(params);
+        });
+        return groups;
+    }
 }
