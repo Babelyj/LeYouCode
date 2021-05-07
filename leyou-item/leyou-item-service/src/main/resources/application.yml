@@ -14,7 +14,7 @@ spring:
     password: leyou
     username: leyou
     template:
-      exchange: leyou.item.exchange
+      exchange: LEYOU.ITEM.EXCHANGE
 eureka:
   client:
     service-url:
