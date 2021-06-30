@@ -6,17 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="itcast-elasticsearch" />
-        <module name="leyou-item-interface" />
-        <module name="singlechannel" />
         <module name="leyou-item-service" />
-        <module name="leyou-gateway" />
         <module name="leyou-item" />
-        <module name="leyou-goods-web" />
         <module name="leyou-upload" />
-        <module name="leyou-registry" />
         <module name="leyou-search" />
+        <module name="leyou-goods-web" />
+        <module name="leyou-gateway" />
+        <module name="leyou-user-service" />
         <module name="leyou-common" />
+        <module name="leyou-registry" />
+        <module name="leyou-item-interface" />
+        <module name="leyou-user-interface" />
+        <module name="itcast-elasticsearch" />
+        <module name="leyou-sms" />
+        <module name="singlechannel" />
+        <module name="leyou-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,7 +34,11 @@
       <module name="leyou-item-service" target="1.8" />
       <module name="leyou-registry" target="1.8" />
       <module name="leyou-search" target="1.8" />
+      <module name="leyou-sms" target="1.8" />
       <module name="leyou-upload" target="1.8" />
+      <module name="leyou-user" target="1.8" />
+      <module name="leyou-user-interface" target="1.8" />
+      <module name="leyou-user-service" target="1.8" />
       <module name="singlechannel" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -46,7 +54,11 @@
       <module name="leyou-item-service" options="-parameters" />
       <module name="leyou-registry" options="-parameters" />
       <module name="leyou-search" options="-parameters" />
+      <module name="leyou-sms" options="-parameters" />
       <module name="leyou-upload" options="-parameters" />
+      <module name="leyou-user" options="-parameters" />
+      <module name="leyou-user-interface" options="-parameters" />
+      <module name="leyou-user-service" options="-parameters" />
     </option>
   </component>
 </project>
